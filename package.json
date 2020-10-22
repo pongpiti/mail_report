@@ -1,0 +1,38 @@
+{
+  "name": "login-system",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "bcryptjs": "*",
+    "chart.js": "^2.9.4",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "~1.4.4",
+    "d3node-piechart": "0.0.10",
+    "debug": "~2.6.9",
+    "ejs": "*",
+    "express": "~4.16.1",
+    "express-message": "*",
+    "express-messages": "^1.0.1",
+    "express-session": "^1.17.1",
+    "express-validator": "*",
+    "http-errors": "~1.6.3",
+    "init": "^0.1.2",
+    "mongod": "*",
+    "mongoose": "*",
+    "monk": "^7.3.0",
+    "morgan": "~1.9.1",
+    "passport": "*",
+    "passport-http": "*",
+    "passport-local": "*"
+  },
+  "main": "app.js",
+  "devDependencies": {
+    "@types/chart.js": "^2.9.26"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <title>Receipt</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Poppins"
+  />
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous"
+  />
+  <style>
+    #cover {
+      background: url("https://images.wallpapersden.com/image/download/minimal-mojave_64927_5120x2880.jpg");
+      background-size: cover;
+      height: 100%;
+      text-align: center;
+    }
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      font-family: "Poppins", sans-serif;
+    }
+    body {
+      font-size: 16px;
+    }
+    .w3-half img {
+      margin-bottom: -6px;
+      margin-top: 16px;
+      opacity: 0.8;
+      cursor: pointer;
+    }
+    .w3-half img:hover {
+      opacity: 1;
+    }
+    .txtcolor{
+      background: #21313c;
+    }
+    .a{
+      color:white;
+    }
+  
+  </style>
+  <body>
+    <!-- Sidebar/menu -->
+    <section id="cover" class="min-vh-100">
+      <nav
+        class="w3-sidebar txtcolor w3-collapse w3-top w3-large w3-padding"
+        style="z-index: 3; width: 300px; font-weight: bold"
+        id="mySidebar"
+      >
+     
+        <% include ../layout %>
+        <div class="w3-container">
+          <h3 class="w3-padding-64 a">
+            <b>Report</b>
+          </h3>
+        </div>
+        <div class="w3-bar-block">
+          <a href="/all" class="w3-bar-item w3-button w3-hover-white a">All</a>
+          <a href="/Quatation" class="w3-bar-item w3-button w3-hover-white a "
+            >Quatation</a
+          >
+          <a href="/PurchaseOrder" class="w3-bar-item w3-button w3-hover-white a "
+            >PurchaseOrder</a
+          >
+          <a href="Receipt" class="w3-bar-item w3-button w3-hover-white a "
+            >Receipt</a
+          >
+          <a href="/Invoice" class="w3-bar-item w3-button w3-hover-white a"
+            >invoice</a
+          >
+        </div>
+        
+      </nav>
+
+      <!-- Top menu on small screens -->
+      <header
+        class="w3-container w3-top w3-hide-large txtcolor w3-xlarge w3-padding"
+      >
+        <a
+          href="javascript:void(0)"
+          class="w3-button txtcolor a w3-margin-right"
+          onclick="w3_open()"
+          >☰</a
+        >
+        <span>Company Name</span>
+      </header>
+
+      <!-- Overlay effect when opening sidebar on small screens -->
+      <div
+        class="w3-overlay w3-hide-large"
+        onclick="w3_close()"
+        style="cursor: pointer"
+        title="close side menu"
+        id="myOverlay"
+      ></div>
+
+      <!-- !PAGE CONTENT! -->
+      <div class="w3-main" style="margin-left: 340px; margin-right: 40px">
+        <div class="container py-5">
+            <table class="table table-borderless bg-light shadow-sm">
+              <tr class="txtcolor a">
+                <th scope="col">Num</th>
+                <th scope="col">Date</th>
+                <th scope="col">From</th>
+                <th scope="col">Subject</th>
+                <th scope="col">Body</th>
+              </tr>
+              <tbody>
+                <% lists.forEach(function(data,i){ %>
+                <tr>
+                  <th scope="row"><%= i+1 %></th>
+                  <td><%= data.date %></td>
+                  <td><%= data.from %></td>
+                  <td><%= data.subject %></td>
+                  <td><%= data.body %></td>
+                </tr>
+                <% }) %>
+              </tbody>
+            </table>
+        </div>
+      </div>
+    </section>
+    <script>
+      // Script to open and close sidebar
+      function w3_open() {
+        document.getElementById("mySidebar").style.display = "block";
+        document.getElementById("myOverlay").style.display = "block";
+      }
+
+      function w3_close() {
+        document.getElementById("mySidebar").style.display = "none";
+        document.getElementById("myOverlay").style.display = "none";
+      }
+
+      // Modal Image Gallery
+      function onClick(element) {
+        document.getElementById("img01").src = element.src;
+        document.getElementById("modal01").style.display = "block";
+        var captionText = document.getElementById("caption");
+        captionText.innerHTML = element.alt;
+      }
+    </script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

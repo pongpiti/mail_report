@@ -41,13 +41,12 @@
     .w3-half img:hover {
       opacity: 1;
     }
-    .txtcolor{
+    .txtcolor {
       background: #21313c;
     }
-    .a{
-      color:white;
+    .a {
+      color: white;
     }
-  
   </style>
   <body>
     <!-- Sidebar/menu -->
@@ -57,7 +56,6 @@
         style="z-index: 3; width: 300px; font-weight: bold"
         id="mySidebar"
       >
-     
         <% include ../layout %>
         <div class="w3-container">
           <h3 class="w3-padding-64 a">
@@ -66,20 +64,21 @@
         </div>
         <div class="w3-bar-block">
           <a href="/all" class="w3-bar-item w3-button w3-hover-white a">All</a>
-          <a href="/Quatation" class="w3-bar-item w3-button w3-hover-white a "
+          <a href="/Quatation" class="w3-bar-item w3-button w3-hover-white a"
             >Quatation</a
           >
-          <a href="/PurchaseOrder" class="w3-bar-item w3-button w3-hover-white a "
+          <a
+            href="/PurchaseOrder"
+            class="w3-bar-item w3-button w3-hover-white a"
             >PurchaseOrder</a
           >
-          <a href="Receipt" class="w3-bar-item w3-button w3-hover-white a "
+          <a href="Receipt" class="w3-bar-item w3-button w3-hover-white a"
             >Receipt</a
           >
           <a href="/Invoice" class="w3-bar-item w3-button w3-hover-white a"
             >invoice</a
           >
         </div>
-        
       </nav>
 
       <!-- Top menu on small screens -->
@@ -107,26 +106,39 @@
       <!-- !PAGE CONTENT! -->
       <div class="w3-main" style="margin-left: 340px; margin-right: 40px">
         <div class="container py-5">
-            <table class="table table-borderless bg-light shadow-sm">
-              <tr class="txtcolor a">
-                <th scope="col">Num</th>
-                <th scope="col">Date</th>
-                <th scope="col">From</th>
-                <th scope="col">Subject</th>
-                <th scope="col">Body</th>
+          <table class="table table-borderless bg-light shadow-sm">
+            <tr class="txtcolor a">
+              <th scope="col">Num</th>
+              <th scope="col">Date</th>
+              <th scope="col">From</th>
+              <th scope="col">Subject</th>
+              <th scope="col">Body</th>
+            </tr>
+            <tbody>
+              <% lists.forEach(function(data,i){ %>
+              <tr>
+                <th scope="row"><%= i+1 %></th>
+                <td><%= data.date %></td>
+                <td><%= data.from %></td>
+                <td><%= data.subject %></td>
+                <td><%= data.body %></td>
               </tr>
-              <tbody>
-                <% lists.forEach(function(data,i){ %>
-                <tr>
-                  <th scope="row"><%= i+1 %></th>
-                  <td><%= data.date %></td>
-                  <td><%= data.from %></td>
-                  <td><%= data.subject %></td>
-                  <td><%= data.body %></td>
-                </tr>
-                <% }) %>
-              </tbody>
-            </table>
+              <% }) %>
+              <tr>
+                <iframe
+                  style="
+                    background: #21313c;
+                    border: none;
+                    border-radius: 2px;
+                    box-shadow: 0 2px 10px 0 rgba(70, 76, 79, 0.2);
+                  "
+                  width="640"
+                  height="480"
+                  src="https://charts.mongodb.com/charts-project-0-dpnhp/embed/charts?id=5d3e8ffa-2406-46d8-a110-2994bbe16d83&autoRefresh=10&theme=dark"
+                ></iframe>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>

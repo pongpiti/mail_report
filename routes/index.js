@@ -95,10 +95,11 @@ router.get("/all", enSureAuthenticated, function (req, res, next) {
     if (err) throw err;
     var dbo = db.db("email");
     /*Return only the documents with the address "Park Lane 38":*/
+    var query1 = { $or: [ { subject: "ขายสินค้า" }, { subject: "ใบแจ้งหนี้" }, { subject: "ใบเสร็จ" }, { subject: "สั่งซื้อสินค้า" } ] }
 
     dbo
       .collection("data")
-      .find()
+      .find(query1)
       .toArray(function (err, result) {
         if (err) throw err;
         console.log(result);

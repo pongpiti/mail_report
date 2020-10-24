@@ -148,13 +148,11 @@ router.post("/all", enSureAuthenticated, function (req, res, next) {
         var col = dbo.collection("data");
         const dates = await col.distinct("date");
         if (err) throw err;
-        /*        console.log(result); */
         db.close();
         res.render("showdatainemail/all", { lists: result, datetime: dates });
       });
   });
 });
-
 router.get("/all", enSureAuthenticated, function (req, res, next) {
   MongoClient.connect(url, function (err, db) {
     if (err) throw err;

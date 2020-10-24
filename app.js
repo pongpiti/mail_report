@@ -50,5 +50,7 @@ var usersRouter = require("./routes/users");
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
-
+app.use((req, res,next)=>{
+  res.status(404).render("404")
+});
 module.exports = app;

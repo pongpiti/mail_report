@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <title>Receipt</title>
-  <link
-    rel="shortcut icon"
-    href="https://image.flaticon.com/icons/png/512/1055/1055644.png"
-    type="image/x-icon"
-  />
+  <title>Quatation</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
@@ -19,8 +14,12 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
     crossorigin="anonymous"
   />
+  <link
+    rel="shortcut icon"
+    href="https://image.flaticon.com/icons/png/512/1055/1055644.png"
+    type="image/x-icon"
+  />
   <style>
-    @import url("https://fonts.googleapis.com/css2?family=Kanit&display=swap");
     #cover {
       background: url("https://images.wallpapersden.com/image/download/minimal-mojave_64927_5120x2880.jpg");
       background-size: cover;
@@ -69,43 +68,44 @@
     <!-- Sidebar/menu -->
     <section id="cover" class="min-vh-100">
       <nav
-      class="w3-sidebar txtcolor w3-collapse w3-top w3-large w3-padding"
-      style="z-index: 3; width: 300px; font-weight: bold"
-      id="mySidebar"
-    >
-      <% include ../layout %>
-      <div class="w3-container">
-        <h3 class="w3-padding-64 a">
-          <b>Report</b>
-        </h3>
-      </div>
-      <div class="w3-bar-block">
-        <a href="all" class="w3-bar-item w3-button w3-hover-white a x "
-          >ทั้งหมด</a
-        >
-        <a href="PurchaseReq" class="w3-bar-item w3-button w3-hover-white a x"
-          >ใบขอซื้อ</a
-        >
-        <a href="/Quatation" class="w3-bar-item w3-button w3-hover-white a x"
-          >ใบเสนอราคา</a
-        >
-        <a
-          href="/PurchaseOrder"
-          class="w3-bar-item w3-button w3-hover-white a x"
-          >สั่งซื้อสินค้า</a
-        >
-        <a href="/Invoice" class="w3-bar-item w3-button w3-hover-white a x"
-          >ใบแจ้งหนี้</a
-        >
-        <a href="DeliveryNote" class="w3-bar-item w3-button w3-hover-white a x"
-          >ใบส่งสินค้า</a
-        >
-        <a href="Receipt" class="w3-bar-item w3-button w3-hover-white a x"
-          >ใบเสร็จ</a
-        >
-      </div>
-    </nav>
-
+        class="w3-sidebar txtcolor w3-collapse w3-top w3-large w3-padding"
+        style="z-index: 3; width: 300px; font-weight: bold"
+        id="mySidebar"
+      >
+        <% include ../layout %>
+        <div class="w3-container">
+          <h3 class="w3-padding-64 a">
+            <b>Report</b>
+          </h3>
+        </div>
+        <div class="w3-bar-block">
+          <a href="all" class="w3-bar-item w3-button w3-hover-white a x"
+            >ทั้งหมด</a
+          >
+          <a href="PurchaseReq" class="w3-bar-item w3-button w3-hover-white a x"
+            >ใบขอซื้อ</a
+          >
+          <a href="/Quatation" class="w3-bar-item w3-button w3-hover-white a x"
+            >ใบเสนอราคา</a
+          >
+          <a
+            href="/PurchaseOrder"
+            class="w3-bar-item w3-button w3-hover-white a x"
+            >สั่งซื้อสินค้า</a
+          >
+          <a href="/Invoice" class="w3-bar-item w3-button w3-hover-white a x"
+            >ใบแจ้งหนี้</a
+          >
+          <a
+            href="DeliveryNote"
+            class="w3-bar-item w3-button w3-hover-white a x"
+            >ใบส่งสินค้า</a
+          >
+          <a href="Receipt" class="w3-bar-item w3-button w3-hover-white a x"
+            >ใบเสร็จ</a
+          >
+        </div>
+      </nav>
       <!-- Top menu on small screens -->
       <header
         class="w3-container w3-top w3-hide-large txtcolor w3-xlarge w3-padding"
@@ -157,9 +157,9 @@
                     border-radius: 2px;
                     box-shadow: 0 2px 10px 0 rgba(70, 76, 79, 0.2);
                   "
-                  width="100%"
+                  width=100%
                   height="480"
-                  src="https://charts.mongodb.com/charts-project-0-dpnhp/embed/charts?id=c8f56a99-6531-4420-9a7e-568db12eed3f&autoRefresh=10&theme=dark"
+                  src="https://charts.mongodb.com/charts-project-0-dpnhp/embed/charts?id=d0ba18bf-2257-47f6-9fea-007349d715e7&autoRefresh=10&theme=dark"
                 ></iframe>
               </tr>
             </tbody>

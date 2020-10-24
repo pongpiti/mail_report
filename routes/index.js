@@ -22,11 +22,45 @@ router.get("/home", enSureAuthenticated, function (req, res, next) {
   res.render("index");
 });
 
+router.get("/DeliveryNote", enSureAuthenticated, function (req, res, next) {
+  MongoClient.connect(url, function (err, db) {
+    if (err) throw err;
+    var dbo = db.db("email");
+    var query = { subject: "ใบส่งสินค้า" };
+    dbo
+      .collection("data")
+      .find(query)
+      .toArray(function (err, result) {
+        if (err) throw err;
+        console.log(result);
+        db.close();
+        res.render("showdatainemail/DeliveryNote", { lists: result });
+      });
+  });
+});
+
+router.get("/PurchaseReq", enSureAuthenticated, function (req, res, next) {
+  MongoClient.connect(url, function (err, db) {
+    if (err) throw err;
+    var dbo = db.db("email");
+    var query = { subject: "ใบขอซื้อ" };
+    dbo
+      .collection("data")
+      .find(query)
+      .toArray(function (err, result) {
+        if (err) throw err;
+        console.log(result);
+        db.close();
+        res.render("showdatainemail/PurchaseReq", { lists: result });
+      });
+  });
+});
+
 router.get("/Quatation", enSureAuthenticated, function (req, res, next) {
   MongoClient.connect(url, function (err, db) {
     if (err) throw err;
     var dbo = db.db("email");
-    var query = { subject: "ขายสินค้า" };
+    var query = { subject: "ใบเสนอราคา" };
     dbo
       .collection("data")
       .find(query)
@@ -38,6 +72,7 @@ router.get("/Quatation", enSureAuthenticated, function (req, res, next) {
       });
   });
 });
+
 router.get("/PurchaseOrder", enSureAuthenticated, function (req, res, next) {
   MongoClient.connect(url, function (err, db) {
     if (err) throw err;
@@ -54,6 +89,7 @@ router.get("/PurchaseOrder", enSureAuthenticated, function (req, res, next) {
       });
   });
 });
+
 router.get("/Receipt", enSureAuthenticated, function (req, res, next) {
   MongoClient.connect(url, function (err, db) {
     if (err) throw err;
@@ -70,6 +106,7 @@ router.get("/Receipt", enSureAuthenticated, function (req, res, next) {
       });
   });
 });
+
 router.get("/Invoice", enSureAuthenticated, function (req, res, next) {
   MongoClient.connect(url, function (err, db) {
     if (err) throw err;
@@ -95,10 +132,12 @@ router.post("/all", enSureAuthenticated, function (req, res, next) {
     var dbo = db.db("email");
     var query1 = {
       $or: [
-        { subject: "ขายสินค้า" },
+        { subject: "ใบเสนอราคา" },
         { subject: "ใบแจ้งหนี้" },
         { subject: "ใบเสร็จ" },
         { subject: "สั่งซื้อสินค้า" },
+        { subject: "ใบส่งสินค้า" },
+        { subject: "ใบขอซื้อ" },
       ],
       $and: [{ date: date }],
     };
@@ -118,15 +157,16 @@ router.post("/all", enSureAuthenticated, function (req, res, next) {
 
 router.get("/all", enSureAuthenticated, function (req, res, next) {
   MongoClient.connect(url, function (err, db) {
-
     if (err) throw err;
     var dbo = db.db("email");
     var query1 = {
       $or: [
-        { subject: "ขายสินค้า" },
+        { subject: "ใบเสนอราคา" },
         { subject: "ใบแจ้งหนี้" },
         { subject: "ใบเสร็จ" },
         { subject: "สั่งซื้อสินค้า" },
+        { subject: "ใบส่งสินค้า" },
+        { subject: "ใบขอซื้อ" },
       ],
     };
     dbo
@@ -134,13 +174,12 @@ router.get("/all", enSureAuthenticated, function (req, res, next) {
       .find(query1)
       .toArray(async function (err, result) {
         var col = dbo.collection("data");
-        const dates = await col.distinct("date");  
+        const dates = await col.distinct("date");
         if (err) throw err;
         db.close();
         res.render("showdatainemail/all", { lists: result, datetime: dates });
       });
   });
 });
-
 
 module.exports = router;

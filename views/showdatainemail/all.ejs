@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <title>All</title>
+  <link
+  rel="shortcut icon"
+  href="https://image.flaticon.com/icons/png/512/1055/1055644.png"
+  type="image/x-icon"
+/>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
@@ -41,13 +46,12 @@
     .w3-half img:hover {
       opacity: 1;
     }
-    .txtcolor{
+    .txtcolor {
       background: #21313c;
     }
-    .a{
-      color:white;
+    .a {
+      color: white;
     }
-  
   </style>
   <body>
     <!-- Sidebar/menu -->
@@ -57,7 +61,6 @@
         style="z-index: 3; width: 300px; font-weight: bold"
         id="mySidebar"
       >
-     
         <% include ../layout %>
         <div class="w3-container">
           <h3 class="w3-padding-64 a">
@@ -66,20 +69,21 @@
         </div>
         <div class="w3-bar-block">
           <a href="/all" class="w3-bar-item w3-button w3-hover-white a">All</a>
-          <a href="/Quatation" class="w3-bar-item w3-button w3-hover-white a "
+          <a href="/Quatation" class="w3-bar-item w3-button w3-hover-white a"
             >Quatation</a
           >
-          <a href="/PurchaseOrder" class="w3-bar-item w3-button w3-hover-white a "
+          <a
+            href="/PurchaseOrder"
+            class="w3-bar-item w3-button w3-hover-white a"
             >PurchaseOrder</a
           >
-          <a href="Receipt" class="w3-bar-item w3-button w3-hover-white a "
+          <a href="Receipt" class="w3-bar-item w3-button w3-hover-white a"
             >Receipt</a
           >
           <a href="/Invoice" class="w3-bar-item w3-button w3-hover-white a"
             >invoice</a
           >
         </div>
-        
       </nav>
 
       <!-- Top menu on small screens -->
@@ -105,28 +109,49 @@
       ></div>
 
       <!-- !PAGE CONTENT! -->
-      <div class="w3-main" style="margin-left: 340px; margin-right: 40px">
+      <div class="w3-main p-4" style="margin-left: 340px; margin-right: 40px">
         <div class="container py-5">
-            <table class="table table-borderless bg-light shadow-sm">
-              <tr class="txtcolor a">
-                <th scope="col">Num</th>
-                <th scope="col">Date</th>
-                <th scope="col">From</th>
-                <th scope="col">Subject</th>
-                <th scope="col">Body</th>
-              </tr>
-              <tbody>
-                <% lists.forEach(function(data,i){ %>
+            <form class="form-group" action="/all" method="post">
+              <table style="width: 100%">
                 <tr>
-                  <th scope="row"><%= i+1 %></th>
-                  <td><%= data.date %></td>
-                  <td><%= data.from %></td>
-                  <td><%= data.subject %></td>
-                  <td><%= data.body %></td>
+                  <th>
+                    <select class="form-control form-control-lg" name="date">
+                      <option disabled selected>Choose...</option>
+                      <% datetime.forEach(function(data){ %>
+                      <option value="<%= data %>"><%= data %></option>
+                      <% }) %>
+                    </select>
+                  </th>
+                  <th>
+               
+                    <button type="submit" class="btn btn-secondary btn-lg btn-block">
+                      Submit
+                    </button>
+                  </th>
                 </tr>
-                <% }) %>
-              </tbody>
-            </table>
+              </table>
+            </form>
+  
+          <table class="table table-borderless bg-light shadow-sm">
+            <tr class="txtcolor a">
+              <th scope="col">Num</th>
+              <th scope="col">Date</th>
+              <th scope="col">From</th>
+              <th scope="col">Subject</th>
+              <th scope="col">Body</th>
+            </tr>
+            <tbody>
+              <% lists.forEach(function(data,i){ %>
+              <tr>
+                <th scope="row"><%= i+1 %></th>
+                <td><%= data.date %></td>
+                <td><%= data.from %></td>
+                <td><%= data.subject %></td>
+                <td><%= data.body %></td>
+              </tr>
+              <% }) %>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>

@@ -26,7 +26,6 @@ router.get("/Quatation", enSureAuthenticated, function (req, res, next) {
   MongoClient.connect(url, function (err, db) {
     if (err) throw err;
     var dbo = db.db("email");
-    /*Return only the documents with the address "Park Lane 38":*/
     var query = { subject: "ขายสินค้า" };
     dbo
       .collection("data")
@@ -43,7 +42,6 @@ router.get("/PurchaseOrder", enSureAuthenticated, function (req, res, next) {
   MongoClient.connect(url, function (err, db) {
     if (err) throw err;
     var dbo = db.db("email");
-    /*Return only the documents with the address "Park Lane 38":*/
     var query = { subject: "สั่งซื้อสินค้า" };
     dbo
       .collection("data")
@@ -60,7 +58,6 @@ router.get("/Receipt", enSureAuthenticated, function (req, res, next) {
   MongoClient.connect(url, function (err, db) {
     if (err) throw err;
     var dbo = db.db("email");
-    /*Return only the documents with the address "Park Lane 38":*/
     var query = { subject: "ใบเสร็จ" };
     dbo
       .collection("data")
@@ -90,35 +87,60 @@ router.get("/Invoice", enSureAuthenticated, function (req, res, next) {
       });
   });
 });
-router.get("/all", enSureAuthenticated, function (req, res, next) {
+
+router.post("/all", enSureAuthenticated, function (req, res, next) {
   MongoClient.connect(url, function (err, db) {
+    var date = req.body.date;
     if (err) throw err;
     var dbo = db.db("email");
-    /*Return only the documents with the address "Park Lane 38":*/
-    var query1 = { $or: [ { subject: "ขายสินค้า" }, { subject: "ใบแจ้งหนี้" }, { subject: "ใบเสร็จ" }, { subject: "สั่งซื้อสินค้า" } ] }
-
+    var query1 = {
+      $or: [
+        { subject: "ขายสินค้า" },
+        { subject: "ใบแจ้งหนี้" },
+        { subject: "ใบเสร็จ" },
+        { subject: "สั่งซื้อสินค้า" },
+      ],
+      $and: [{ date: date }],
+    };
     dbo
       .collection("data")
       .find(query1)
-      .toArray(function (err, result) {
+      .toArray(async function (err, result) {
+        var col = dbo.collection("data");
+        const dates = await col.distinct("date");
         if (err) throw err;
-        console.log(result);
+        /*        console.log(result); */
         db.close();
-        res.render("showdatainemail/all", { lists: result });
+        res.render("showdatainemail/all", { lists: result, datetime: dates });
       });
   });
 });
-/* GET addblog page. */
-/* router.get("/addblog",enSureAuthenticated, function (req, res, next) {
-  res.render("blog/addblog");
-}); */
-/* GET Myblog page. */
-/* router.get("/Myblog",enSureAuthenticated, function (req, res, next) {
-  res.render("blog/myblog");
-}); */
-/* GET about page. */
-/* router.get("/about", function (req, res, next) {
-  res.render("about/about");
-}); */
+
+router.get("/all", enSureAuthenticated, function (req, res, next) {
+  MongoClient.connect(url, function (err, db) {
+
+    if (err) throw err;
+    var dbo = db.db("email");
+    var query1 = {
+      $or: [
+        { subject: "ขายสินค้า" },
+        { subject: "ใบแจ้งหนี้" },
+        { subject: "ใบเสร็จ" },
+        { subject: "สั่งซื้อสินค้า" },
+      ],
+    };
+    dbo
+      .collection("data")
+      .find(query1)
+      .toArray(async function (err, result) {
+        var col = dbo.collection("data");
+        const dates = await col.distinct("date");  
+        if (err) throw err;
+        db.close();
+        res.render("showdatainemail/all", { lists: result, datetime: dates });
+      });
+  });
+});
+
 
 module.exports = router;

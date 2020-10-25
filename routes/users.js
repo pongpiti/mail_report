@@ -15,7 +15,6 @@ function enSureAuthenticated(req, res, next) {
 }
 
 /* GET users listing. */
-
 /*get profile page */
 /* router.get("/profile", enSureAuthenticated, function (req, res, next) {
   res.render("profile/profile");
@@ -114,7 +113,7 @@ router.post(
 // bcrypt
 var bcrypt = require("bcryptjs");
 var db = require("monk")(
-  "mongodb+srv://pongpiti_1:boonyoung_1@cluster0-rbtdf.mongodb.net/loginDB?retryWrites=true&w=majority"
+  "mongodb+srv://pongpiti_1:1234@cluster0-rbtdf.mongodb.net/loginDB?retryWrites=true&w=majority"
 );
 
 //post  update user

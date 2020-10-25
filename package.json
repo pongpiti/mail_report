@@ -24,6 +24,7 @@
     "mongoose": "*",
     "monk": "^7.3.0",
     "morgan": "~1.9.1",
+    "nodemailer": "^6.4.14",
     "passport": "*",
     "passport-http": "*",
     "passport-local": "*"

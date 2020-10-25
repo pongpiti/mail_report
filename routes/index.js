@@ -26,7 +26,7 @@ router.post("/sendemail", enSureAuthenticated, function (req, res, next) {
   const nodemailer = require("nodemailer");
   var email = req.body.email;
   var subject = req.body.subject;
-  var message = req.body.message;
+  var message = req.body.content;
 
   // async..await is not allowed in global scope, must use a wrapper
   async function main() {
@@ -50,7 +50,7 @@ router.post("/sendemail", enSureAuthenticated, function (req, res, next) {
       from: email, // อีเมลผู้ส่ง
       to: email, // อีเมลผู้รับ สามารถกำหนดได้มากกว่า 1 อีเมล โดยขั้นด้วย ,(Comma)
       subject: subject, // หัวข้ออีเมล
-      text: message, // plain text body
+      html: message, // plain text body
     });
     MongoClient.connect(url, function (err, db) {
       var a = new Date();

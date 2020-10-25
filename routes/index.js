@@ -33,12 +33,16 @@ router.post("/sendemail", enSureAuthenticated, function (req, res, next) {
     // สร้างออปเจ็ค transporter เพื่อกำหนดการเชื่อมต่อ SMTP และใช้ตอนส่งเมล
     let transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
-      port: 587,
-      secure: false, // true for 465, false for other ports
+      port: 465,
+      secure: true, // true for 465, false for other ports
       auth: {
         // ข้อมูลการเข้าสู่ระบบ
         user: "pongpiti23.23@gmail.com", // email user ของเรา
         pass: "pongpiti1751", // email password
+      },
+      tls: {
+        // do not fail on invalid certs
+        rejectUnauthorized: false,
       },
     });
     // เริ่มทำการส่งอีเมล

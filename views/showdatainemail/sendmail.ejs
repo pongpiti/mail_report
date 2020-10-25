@@ -136,7 +136,7 @@
           <h1 class="tt p-3">Reply Mail</h1>
           <section class="mb-4 bg-light p-5">
             <!--Section heading-->
-            <h2 class="h1-responsive font-weight-bold text-center my-4">
+            <h2 class="h1-responsive font-weight-bold text-center">
               Contact us
             </h2>
             <!--Section description-->
@@ -150,34 +150,33 @@
                     <!--Grid column-->
 
                     <!--Grid column-->
-                    <div class="col-md-6">
-                      <div class="md-form mb-0 p-">
+                    <div class="col-md-12 p-2">
+                      <div class="md-form mb-0">
                         <input
                           type="text"
                           id="email"
                           name="email"
                           class="form-control"
                           placeholder="Send to"
+                          height=100%
                         />
                       </div>
                     </div>
-                    <div class="col-md-6">
-                      <div class="md-form mb-0">
-                        <input
-                          type="text"
-                          id="subject"
-                          name="subject"
-                          class="form-control"
-                          placeholder="Subject"
-                        />
-                      </div>
+                    <div class="col-md-12 p-2">
+                      <select class="form-control form-control-lg" name="subject">
+                        <option >subject</option>
+                        <option value="ใบเสนอราคา">ใบเสนอราคา</option>
+                        <option value="ใบแจ้งหนี้">ใบแจ้งหนี้</option>
+                        <option value="ใบส่งสินค้า">ใบส่งสินค้า</option>
+                        <option value="ใบเสร็จ">ใบเสร็จ</option>
+                      </select>
                     </div>
                     <!--Grid column-->
                   </div>
 
                   <div class="row">
                     <!--Grid column-->
-                    <div class="col-md-12">
+                    <div class="col-md-12 p-2">
                       <div class="md-form">
                         <label for="message">Your message</label>
                         <script src="https://cdn.ckeditor.com/4.15.0/standard/ckeditor.js"></script>
@@ -189,9 +188,11 @@
                     </div>
                   </div>
                   <!--Grid row-->
-                  <button type="submit" class="btn btn-dark btn-lg">
-                    Submit
-                  </button>
+                  <div class="py-5">
+                    <button type="submit" class="btn btn-dark btn-lg">
+                      Submit
+                    </button>
+                  </div>
                 </form>
 
                 <div class="status"></div>

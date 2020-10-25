@@ -24,7 +24,6 @@ router.get("/home", enSureAuthenticated, function (req, res, next) {
 
 router.post("/sendemail", enSureAuthenticated, function (req, res, next) {
   const nodemailer = require("nodemailer");
-  var name = req.body.name;
   var email = req.body.email;
   var subject = req.body.subject;
   var message = req.body.message;
@@ -44,7 +43,7 @@ router.post("/sendemail", enSureAuthenticated, function (req, res, next) {
     });
     // เริ่มทำการส่งอีเมล
     let info = await transporter.sendMail({
-      from: name, // อีเมลผู้ส่ง
+      from: email, // อีเมลผู้ส่ง
       to: email, // อีเมลผู้รับ สามารถกำหนดได้มากกว่า 1 อีเมล โดยขั้นด้วย ,(Comma)
       subject: subject, // หัวข้ออีเมล
       text: message, // plain text body

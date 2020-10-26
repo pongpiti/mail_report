@@ -21,16 +21,14 @@ router.get("/", enSureAuthenticated, function (req, res, next) {
 router.get("/home", enSureAuthenticated, function (req, res, next) {
   res.render("index");
 });
-
 router.post("/sendemail", enSureAuthenticated, function (req, res, next) {
   const nodemailer = require("nodemailer");
   var email = req.body.email;
   var subject = req.body.subject;
   var message = req.body.content;
+/*   var paths = req.filetoupload.path; */
 
-  // async..await is not allowed in global scope, must use a wrapper
   async function main() {
-    // สร้างออปเจ็ค transporter เพื่อกำหนดการเชื่อมต่อ SMTP และใช้ตอนส่งเมล
     let transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
       port: 465,
@@ -50,7 +48,8 @@ router.post("/sendemail", enSureAuthenticated, function (req, res, next) {
       from: email, // อีเมลผู้ส่ง
       to: email, // อีเมลผู้รับ สามารถกำหนดได้มากกว่า 1 อีเมล โดยขั้นด้วย ,(Comma)
       subject: subject, // หัวข้ออีเมล
-      html: message, // plain text body
+      html: message,
+     /*  attachments: [{ filename: paths, path: __dirname + "\\" + paths }], // plain text body */
     });
     MongoClient.connect(url, function (err, db) {
       var a = new Date();

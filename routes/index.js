@@ -21,6 +21,7 @@ router.get("/", enSureAuthenticated, function (req, res, next) {
 router.get("/home", enSureAuthenticated, function (req, res, next) {
   res.render("index");
 });
+
 router.post("/sendemail", enSureAuthenticated, function (req, res, next) {
   const nodemailer = require("nodemailer");
   var email = req.body.email;

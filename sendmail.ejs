@@ -64,49 +64,16 @@
       text-align: center;
       color: white;
     }
+    .e {
+      font-family: "Kanit", sans-serif;
+      text-align: left;
+      color: black;
+    }
   </style>
   <body>
     <!-- Sidebar/menu -->
     <section id="cover" class="min-vh-100">
-      <nav
-        class="w3-sidebar txtcolor w3-collapse w3-top w3-large w3-padding"
-        style="z-index: 3; width: 300px; font-weight: bold"
-        id="mySidebar"
-      >
-        <% include ../nav %>
-        <div class="w3-container">
-          <h3 class="w3-padding-64 a">
-            <b>Report</b>
-          </h3>
-        </div>
-        <div class="w3-bar-block">
-          <a href="all" class="w3-bar-item w3-button w3-hover-white a x"
-            >ทั้งหมด</a
-          >
-          <a href="PurchaseReq" class="w3-bar-item w3-button w3-hover-white a x"
-            >ใบขอซื้อ</a
-          >
-          <a href="/Quatation" class="w3-bar-item w3-button w3-hover-white a x"
-            >ใบเสนอราคา</a
-          >
-          <a
-            href="/PurchaseOrder"
-            class="w3-bar-item w3-button w3-hover-white a x"
-            >สั่งซื้อสินค้า</a
-          >
-          <a href="/Invoice" class="w3-bar-item w3-button w3-hover-white a x"
-            >ใบแจ้งหนี้</a
-          >
-          <a
-            href="DeliveryNote"
-            class="w3-bar-item w3-button w3-hover-white a x"
-            >ใบส่งสินค้า</a
-          >
-          <a href="Receipt" class="w3-bar-item w3-button w3-hover-white a x"
-            >ใบเสร็จ</a
-          >
-        </div>
-      </nav>
+      <% include ../nav %>
 
       <!-- Top menu on small screens -->
       <header
@@ -135,48 +102,42 @@
         <div class="container py-5">
           <h1 class="tt p-3">Reply Mail</h1>
           <section class="mb-4 bg-light p-5">
-            <!--Section heading-->
-            <h2 class="h1-responsive font-weight-bold text-center my-4">
-              Contact us
-            </h2>
-            <!--Section description-->
             <div class="row">
               <!--Grid column-->
-              <div class="col-md mb-md-0 mb-5">
+              <div class="col">
                 <form id="contact-form" name="contact-form" method="POST">
                   <!--Grid row-->
-                  <div class="row p-3">
+                  <div class="row">
                     <!--Grid column-->
                     <!--Grid column-->
 
                     <!--Grid column-->
-                    <div class="col-md-6">
-                      <div class="md-form mb-0 p-">
+                    <div class="col-md-2 p-3">Mail to :</div>
+                    <div class="col-md-10 p-2">
+                      <div class="md-form mb-0">
                         <input
                           type="text"
                           id="email"
                           name="email"
                           class="form-control"
-                          placeholder="Send to"
+                          placeholder="Mail to"
+                          height="100%"
                         />
                       </div>
                     </div>
-                    <div class="col-md-6">
-                      <div class="md-form mb-0">
-                        <input
-                          type="text"
-                          id="subject"
-                          name="subject"
-                          class="form-control"
-                          placeholder="Subject"
-                        />
-                      </div>
+                    <div class="col-md-2 p-3">Subject :</div>
+                    <div class="col-md-10 p-2">
+                      <input
+                        type="text"
+                        id="email"
+                        name="subject"
+                        class="form-control"
+                        placeholder="Subject"
+                        height="100%"
+                      />
                     </div>
-                    <!--Grid column-->
                   </div>
-
                   <div class="row">
-                    <!--Grid column-->
                     <div class="col-md-12">
                       <div class="md-form">
                         <label for="message">Your message</label>
@@ -188,13 +149,78 @@
                       </div>
                     </div>
                   </div>
-                  <!--Grid row-->
-                  <button type="submit p-3" class="btn btn-dark btn-lg">
-                    Submit
-                  </button>
-                </form>
+                <!--   <div class="p-5">
+                    <p>choose flie</p>
+                    <input
+                      type="file"
+                      name="myfile"
+                      id="myfile"
+                      multiple="multiple"
+                    />
+                  </div> -->
 
-                <div class="status"></div>
+                  <div class="py-5">
+                    &nbsp; &nbsp;<button
+                      type="submit"
+                      class="btn btn-dark btn-lg"
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </form>
+                <!-- <form id="contact-form" name="contact-form" method="POST">
+                  <div class="row p-3">
+                    <div class="col-md-6 p-2">
+                      <div class="md-form mb-0">
+                        <input
+                          type="text"
+                          id="email"
+                          name="email"
+                          class="form-control"
+                          placeholder="Mail to"
+                          height="100%"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-6 p-2">
+                      <div class="md-form mb-0">
+                        <input
+                          type="text"
+                          id="email"
+                          name="subject"
+                          class="form-control"
+                          placeholder="subject"
+                          height="100%"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="md-form">
+                        <label for="message">Your message</label>
+                        <script src="https://cdn.ckeditor.com/4.15.0/standard/ckeditor.js"></script>
+                        <textarea name="content"></textarea>
+                        <script>
+                          CKEDITOR.replace("content");
+                        </script>
+                      </div>
+                    </div>
+                  </div>
+                  <input
+                    type="file"
+                    required
+                    class="form-control"
+                    name="image"
+                    id=""
+                  />
+                  <div class="py-5">
+                    <button type="submit" class="btn btn-dark btn-lg">
+                      Submit
+                    </button>
+                  </div>
+                </form> -->
               </div>
             </div>
           </section>

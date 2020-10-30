@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "bcryptjs": "*",
+    "body-parser": "^1.19.0",
     "chart.js": "^2.9.4",
     "connect-flash": "^0.1.1",
     "cookie-parser": "~1.4.4",
@@ -21,18 +22,22 @@
     "formidable": "^1.2.2",
     "http-errors": "~1.6.3",
     "init": "^0.1.2",
+    "js-search": "^2.0.0",
     "mongod": "*",
     "mongoose": "*",
     "monk": "^7.3.0",
     "morgan": "~1.9.1",
+    "multer": "^1.4.2",
     "nodemailer": "^6.4.14",
     "passport": "*",
     "passport-http": "*",
-    "passport-local": "*"
+    "passport-local": "*",
+    "utf8": "^3.0.0"
   },
   "main": "app.js",
   "devDependencies": {
-    "@types/chart.js": "^2.9.26"
+    "@types/chart.js": "^2.9.26",
+    "nodemon": "^2.0.6"
   },
   "author": "",
   "license": "ISC",

@@ -23,12 +23,11 @@ function enSureAuthenticated(req, res, next) {
   res.render("user/register", { title: "register" });
 }); */
 /*get login page */
-
 router.get("/login", function (req, res, next) {
   res.render("user/login", { title: "login" });
 });
-/*get logout page */
 
+/*get logout page */
 router.get("/logout", function (req, res, next) {
   req.logout();
   res.redirect("/");
@@ -46,7 +45,7 @@ router.post(
     alert: "",
   }),
   function (req, res) {
-    res.redirect("/home");
+    res.redirect("/");
   }
 );
 passport.use(

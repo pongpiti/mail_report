@@ -22,7 +22,7 @@
   />
   <style>
     #cover {
-      background: url("https://images.wallpapersden.com/image/download/minimal-mojave_64927_5120x2880.jpg");
+      background: url("https://scontent.fkdt1-1.fna.fbcdn.net/v/t1.15752-9/122740753_365507531558721_7979159073828276096_n.jpg?_nc_cat=111&ccb=2&_nc_sid=ae9488&_nc_eui2=AeG0ZsILzmYMDVk3zvz-VbUnbM0pxOTbh7dszSnE5NuHt2nXF-RLRVjis093fnZ13BuHR_UXNhUxEbFPy0dR4Lj7&_nc_ohc=VfJ-8rgm2gsAX_9yTUX&_nc_ht=scontent.fkdt1-1.fna&oh=856510dce85a8c7fd842794e3344cebd&oe=5FBFAD25");
       background-size: cover;
       height: 100%;
       text-align: center;
@@ -64,13 +64,19 @@
       text-align: center;
       color: white;
     }
+    .bla {
+      font-family: "Kanit", sans-serif;
+      text-align: center;
+      color: black;
+    }
+    a.outset {
+      border-style: outset;
+    }
   </style>
   <body>
     <!-- Sidebar/menu -->
-    <section id="cover" class="min-vh-100"> 
-    <% include nav %>
-     
-
+    <section id="cover" class="min-vh-100">
+      <% include nav %>
       <!-- Top menu on small screens -->
       <header
         class="w3-container w3-top w3-hide-large txtcolor w3-xlarge w3-padding"
@@ -94,22 +100,78 @@
       ></div>
 
       <!-- !PAGE CONTENT! -->
-      <div class="w3-main" style="margin-left: 340px; margin-right: 40px">
-        <div class="container py-5">
-          <h1 class="tt p-3">Welcome</h1>
-          <iframe
-            style="
-              background: #21313c;
-              border: none;
-              border-radius: 2px;
-              box-shadow: 0 2px 10px 0 rgba(70, 76, 79, 0.2);
-            "
-            width="100%"
-            height="750"
-            src="https://charts.mongodb.com/charts-project-0-dpnhp/embed/charts?id=bcdd7c1e-94fd-4f0b-aa25-c3c8f4a6577f&autoRefresh=true&maxDataAge=30&theme=dark"
-          ></iframe>
+      <header class="w3-container w3-center" style="padding: 15% 16px">
+        <div class="w3-main" style="margin-left: 340px; margin-right: 40px">
+          <div class="container py-5">
+            <h1 class="w3-margin w3-jumbo x">
+              ระบบจัดการจดหมายอิเล็กทรอนิกส์ผ่านเว็บแอปพลิเคชัน
+              กรณีศึกษาบริษัทเอกชน
+            </h1>
+            <p class="w3-xlarge x">
+              Electronic mail management system via web application case studies
+              for private companies
+            </p>
+            <h3>
+              <a
+                href="/profile"
+                class="w3-bar-item w3-button w3-hover-white a x bg-dark shadow outset"
+                >ผู้จัดทำ</a
+              >
+            </h3>
+
+            <!--   <div class="row bg-light shadow">
+            <div class="w3-display-middle py-5">
+              <h1 class="w3-jumbo w3-animate-top">COMING SOON</h1>
+              <hr class="w3-border-grey" style="margin: auto; width: 40%" />
+              <p class="w3-large w3-center">35 days left</p>
+            </div>
+            <div class="col-12 py-5">
+              <h2 class="bla p-3">
+                ระบบจัดการจดหมายอิเล็กทรอนิกส์ผ่านเว็บแอปพลิเคชัน
+                กรณีศึกษาบริษัทเอกชน
+              </h2>
+              <hr />
+              <h3 class="bla py-3">ผู้จัดทำ</h3>
+              <hr />
+            </div>
+
+            <div class="col-4 py-3">
+              <img
+                src="https://scontent.xx.fbcdn.net/v/t1.15752-0/p280x280/122824062_733528927507425_2748227418546661531_n.jpg?_nc_cat=101&ccb=2&_nc_sid=ae9488&_nc_eui2=AeE3rwA9ZvG-raNtbfcxr7QvfFN6GLGxwyd8U3oYsbHDJ2dbdCA_msMU887yhpILyD7MPr4rtZ2-iDM2Br1vFsQF&_nc_ohc=AV165AonNPgAX92Rm-A&_nc_oc=AQm6RPTU2_9xWTG4y-IPlh6MpSu0IY61LR7x8lCJonfGFbhWq7tzL7vv2XPnldRybBo&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&tp=6&oh=a858c9b143d87c09e479b42f7ba322c8&oe=5FC005A8"
+                alt=""
+                width="70%"
+              />
+              <div class="py-3">
+                <p class="py-3 bla">พงศธร รัตนอาษา</p>
+                <p class="bla">ปวค 60-1 056050201027-8</p>
+              </div>
+            </div>
+            <div class="col-4 py-3">
+              <img
+                src="https://scontent.fkdt1-1.fna.fbcdn.net/v/t1.15752-9/105009931_2802942209925431_7058359298736955907_n.jpg?_nc_cat=102&ccb=2&_nc_sid=ae9488&_nc_eui2=AeEWrrVo8XDKuXt5JKELONzVIW56ZMVmSNYhbnpkxWZI1oEuYitdDces7wA0yBJb1UT7HTAS36ZY2GmAclpm1_D0&_nc_ohc=zzx9c5tt47kAX8JDAlI&_nc_ht=scontent.fkdt1-1.fna&oh=9f202518c562de5a224c62251d800af8&oe=5FBFA384"
+                alt=""
+                width="70%"
+              />
+              <div class="py-3">
+                <p class="py-3 bla">พงษ์ปิติ บุญยัง</p>
+                <p class="bla">ปวค 60-1 056050201042-7</p>
+              </div>
+            </div>
+            <div class="col-4 py-3">
+              <img
+                src="https://scontent.fkdt1-1.fna.fbcdn.net/v/t1.15752-9/105938014_864941113992771_847315172317020678_n.jpg?_nc_cat=102&ccb=2&_nc_sid=ae9488&_nc_eui2=AeHUu5Y6QNWHP2Nv4zlgBAf1MFOh6jZxnGYwU6HqNnGcZiPNjlB9R_6zlvg4MmEozGU5-UAcaQhwY5zN8GQiMd3M&_nc_ohc=VR01y1bTBwMAX_eejUM&_nc_ht=scontent.fkdt1-1.fna&oh=1be43bd52fa2b879cedd59b594a551ad&oe=5FBDFAAB"
+                alt=""
+                width="70%"
+              />
+              <div class="py-3">
+                <p class="py-3 bla">ฐิติวุฒิ แช่มช้อย</p>
+                <p class="bla">ปวค 60-1 056050201043-5</p>
+              </div>
+            </div>
+          </div> -->
+          </div>
         </div>
-      </div>
+      </header>
     </section>
     <script>
       // Script to open and close sidebar

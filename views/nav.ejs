@@ -1,83 +1,79 @@
 <style>
-   @import url("https://fonts.googleapis.com/css2?family=Kanit&display=swap");
-    #cover {
-      background: url("https://images.wallpapersden.com/image/download/minimal-mojave_64927_5120x2880.jpg");
-      background-size: cover;
-      height: 100%;
-      text-align: center;
-    }
-    body,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5 {
-      font-family: "Poppins", sans-serif;
-    }
-    body {
-      font-size: 16px;
-    }
-    .w3-half img {
-      margin-bottom: -6px;
-      margin-top: 16px;
-      opacity: 0.8;
-      cursor: pointer;
-    }
-    .w3-half img:hover {
-      opacity: 1;
-    }
-    .tt {
-      color: white;
-    }
-    .txtcolor {
-      background: #21313c;
-    }
-    .a {
-      color: white;
-    }
-    .x {
-      font-family: "Kanit", sans-serif;
-      text-align: center;
-      color: white;
-    }
-  </style>
-   <nav
-   class="w3-sidebar txtcolor w3-collapse w3-top w3-large w3-padding"
-   style="z-index: 3; width: 300px; font-weight: bold"
-   id="mySidebar"
- >
-   <% include layout %>
-   <div class="w3-container">
-     <h3 class="w3-padding-64 a">
-       <b>Report</b>
-     </h3>
-   </div>
-   <div class="w3-bar-block">
-     <a href="all" class="w3-bar-item w3-button w3-hover-white a x "
-       >ทั้งหมด</a
-     >
-     <a href="PurchaseReq" class="w3-bar-item w3-button w3-hover-white a x"
-       >ใบขอซื้อ</a
-     >
-     <a href="/Quatation" class="w3-bar-item w3-button w3-hover-white a x"
-       >ใบเสนอราคา</a
-     >
-     <a
-       href="/PurchaseOrder"
-       class="w3-bar-item w3-button w3-hover-white a x"
-       >สั่งซื้อสินค้า</a
-     >
-     <a href="/Invoice" class="w3-bar-item w3-button w3-hover-white a x"
-       >ใบแจ้งหนี้</a
-     >
-     <a href="DeliveryNote" class="w3-bar-item w3-button w3-hover-white a x"
-       >ใบส่งสินค้า</a
-     >
-     <a href="Receipt" class="w3-bar-item w3-button w3-hover-white a x"
-       >ใบเสร็จรับเงิน</a
-     >
-     <a href="sendemail" class="w3-bar-item w3-button w3-hover-white a x"
-       >ตอบเมลกลับ</a
-     >
-   </div>
- </nav>
+  @import url("https://fonts.googleapis.com/css2?family=Kanit&display=swap");
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: "Poppins", sans-serif;
+  }
+  body {
+    font-size: 16px;
+  }
+  .w3-half img {
+    margin-bottom: -6px;
+    margin-top: 16px;
+    opacity: 0.8;
+    cursor: pointer;
+  }
+  .w3-half img:hover {
+    opacity: 1;
+  }
+  .tt {
+    color: white;
+  }
+  .txtcolor {
+    background: #131313;
+  }
+  .a {
+    color: white;
+  }
+  .x {
+    font-family: "Kanit", sans-serif;
+    text-align: center;
+    color: white;
+  }
+</style>
+<nav
+  class="w3-sidebar txtcolor w3-collapse w3-top w3-large w3-padding"
+  style="z-index: 3; width: 300px; font-weight: bold"
+  id="mySidebar"
+>
+  <% include layout %>
+  <div class="w3-container">
+    <h3 class="w3-padding-64 a">
+      <b>Menu</b>
+    </h3>
+  </div>
+  <div class="w3-bar-block">
+    <a href="/sendemail" class="w3-bar-item w3-button w3-hover-white a x"
+      >Reply mail</a
+    >
+    <a href="/all" class="w3-bar-item w3-button w3-hover-white a x "
+      >All mail</a
+    >
+    <a href="/show/ใบขอซื้อ" class="w3-bar-item w3-button w3-hover-white a x"
+      >Purchase Requisition(PR.)</a
+    >
+    <a href="/show/ใบเสนอราคา" class="w3-bar-item w3-button w3-hover-white a x"
+      >Quotation</a
+    >
+    <a
+      href="/show/สั่งซื้อสินค้า"
+      class="w3-bar-item w3-button w3-hover-white a x"
+      >Purchase Order(PO.)</a
+    >
+    <a href="/show/ใบแจ้งหนี้" class="w3-bar-item w3-button w3-hover-white a x"
+      >Invoice</a
+    >
+    <a href="/show/ใบส่งสินค้า" class="w3-bar-item w3-button w3-hover-white a x"
+      >Delivery</a
+    >
+    <a href="/show/ใบเสร็จ" class="w3-bar-item w3-button w3-hover-white a x"
+      >Receipt</a
+    >
+    
+  </div>
+  </form>
+</nav>

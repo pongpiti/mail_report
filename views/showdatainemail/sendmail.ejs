@@ -66,7 +66,7 @@
     }
     .e {
       font-family: "Kanit", sans-serif;
-      text-align: center;
+      text-align: left;
       color: black;
     }
   </style>
@@ -104,14 +104,76 @@
           <section class="mb-4 bg-light p-5">
             <div class="row">
               <!--Grid column-->
-              <div class="col-md mb-md-0 mb-5">
-                <form id="contact-form" name="contact-form" method="POST">
+              <div class="col">
+                <form
+                  id="contact-form"
+                  name="contact-form"
+                  method="POST"
+                  enctype="multipart/form-data"
+                >
                   <!--Grid row-->
-                  <div class="row p-3">
-                    <!--Grid column-->
-                    <!--Grid column-->
+                  <div class="row">
+                    <div class="col-md-2 p-3">Mail to :</div>
+                    <div class="col-md-10 p-2">
+                      <div class="md-form mb-0">
+                        <input
+                          type="text"
+                          id="email"
+                          name="to"
+                          class="form-control"
+                          placeholder="Mailto"
+                          height="100%"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-2 p-3">Subject :</div>
+                    <div class="col-md-10 p-2">
+                      <input
+                        class="form-control"
+                        list="browsers"
+                        name="subject"
+                        placeholder="subject"
+                      />
+                      <datalist id="browsers" name="subject">
+                        <option value="ใบเสนอราคา">ใบเสนอราคา</option>
+                        <option value="ใบแจ้งหนี้">ใบแจ้งหนี้</option>
+                        <option value="ใบส่งสินค้า">ใบส่งสินค้า</option>
+                        <option value="ใบเสร็จ">ใบเสร็จรับเงิน</option>
+                      </datalist>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="md-form">
+                        <label for="message">Your message</label>
+                        <script src="https://cdn.ckeditor.com/4.15.0/standard/ckeditor.js"></script>
+                        <textarea name="content"></textarea>
+                        <input
+                          type="file"
+                          required
+                          class="form-control"
+                          name="image"
+                          id=""
+                          multiple
+                        />
+                        <script>
+                          CKEDITOR.replace("content");
+                        </script>
+                      </div>
+                    </div>
+                  </div>
 
-                    <!--Grid column-->
+                  <div class="py-5">
+                   <button
+                      type="submit"
+                      class="btn btn-dark btn-lg"
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </form>
+                <!-- <form id="contact-form" name="contact-form" method="POST">
+                  <div class="row p-3">
                     <div class="col-md-6 p-2">
                       <div class="md-form mb-0">
                         <input
@@ -119,21 +181,25 @@
                           id="email"
                           name="email"
                           class="form-control"
-                          placeholder="Send to"
+                          placeholder="Mail to"
                           height="100%"
                         />
                       </div>
                     </div>
                     <div class="col-md-6 p-2">
-                      <select class="form-control" name="subject">
-                        <option>subject</option>
-                        <option value="ใบเสนอราคา">ใบเสนอราคา</option>
-                        <option value="ใบแจ้งหนี้">ใบแจ้งหนี้</option>
-                        <option value="ใบส่งสินค้า">ใบส่งสินค้า</option>
-                        <option value="ใบเสร็จ">ใบเสร็จรับเงิน</option>
-                      </select>
+                      <div class="md-form mb-0">
+                        <input
+                          type="text"
+                          id="email"
+                          name="subject"
+                          class="form-control"
+                          placeholder="subject"
+                          height="100%"
+                        />
+                      </div>
                     </div>
                   </div>
+
                   <div class="row">
                     <div class="col-md-12">
                       <div class="md-form">
@@ -146,13 +212,19 @@
                       </div>
                     </div>
                   </div>
+                  <input
+                    type="file"
+                    required
+                    class="form-control"
+                    name="image"
+                    id=""
+                  />
                   <div class="py-5">
                     <button type="submit" class="btn btn-dark btn-lg">
                       Submit
                     </button>
                   </div>
-                </form>
-                <div class="status"></div>
+                </form> -->
               </div>
             </div>
           </section>

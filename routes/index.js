@@ -559,12 +559,11 @@ router.post("/show/:subject", enSureAuthenticated, function (req, res, next) {
   });
 });
 
-router.get("/sendemail", enSureAuthenticated, function (req, res, next) {
-  var from = req.params.from;
-  res.render("showdatainemail/sendmail", { from: from });
+router.get("/sendmail", enSureAuthenticated, function (req, res, next) {
+  res.render("showdatainemail/sendmail copy");
 });
 
-router.post("/sendemail", (req, res) => {
+router.post("/sendmail", enSureAuthenticated, (req, res) => {
   var to;
   var subject;
   var body;
@@ -589,13 +588,12 @@ router.post("/sendemail", (req, res) => {
     if (err) {
       console.log(err);
       return res.end("Something went wrong!");
-    } else {
+    } else if (req.file == null) {
+      var image = req.body.image;
       to = req.body.to;
       subject = req.body.subject;
       body = req.body.content;
-      path = req.file.path;
-      xxx = req.file.image;
-      console.log(xxx);
+      console.log(image);
       console.log(to);
       console.log(subject);
       console.log(body);
@@ -607,7 +605,73 @@ router.post("/sendemail", (req, res) => {
         auth: {
           // ข้อมูลการเข้าสู่ระบบ
           user: "pongpiti23.23@gmail.com", // email user ของเรา
-          pass: "pongpiti1751", // email password
+          pass: "pongpitiboonyoung1", // email password
+        },
+        tls: {
+          // do not fail on invalid certs
+          rejectUnauthorized: false,
+        },
+      });
+      var mailOptions = {
+        to: to,
+        subject: subject,
+        html: body,
+      };
+
+      transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log("Email sent: " + info.response);
+          fs.unlink(path, function (err) {
+            if (err) {
+              return res.end(err);
+            } else {
+              console.log("deleted");
+              MongoClient.connect(url, function (err, db) {
+                var a = new Date();
+                var b = new Date();
+                var c = new Date();
+                var day = a.getDate();
+                var month = b.getMonth() + 1;
+                var year = c.getFullYear();
+                if (err) throw err;
+                var dbo = db.db("email");
+                var myobj = [
+                  {
+                    date: day + "-" + month + "-" + year,
+                    from: to,
+                    subject: subject,
+                    body: body,
+                  },
+                ];
+                dbo.collection("data").insertMany(myobj, function (err, res) {
+                  if (err) throw err;
+                  db.close();
+                });
+              });
+            }
+          });
+        }
+      });
+    } else {
+      to = req.body.to;
+      subject = req.body.subject;
+      body = req.body.content;
+      path = req.file.path;
+
+      console.log(to);
+      console.log(subject);
+      console.log(body);
+      console.log(req.file);
+      var transporter = nodemailer.createTransport({
+        host: "smtp.gmail.com",
+        port: 465,
+        secure: true, // true for 465, false for other ports
+        auth: {
+          // ข้อมูลการเข้าสู่ระบบ
+          user: "pongpiti23.23@gmail.com", // email user ของเรา
+          pass: "pongpitiboonyoung1", // email password
         },
         tls: {
           // do not fail on invalid certs
@@ -635,6 +699,7 @@ router.post("/sendemail", (req, res) => {
             if (err) {
               return res.end(err);
             } else {
+              console.log("deleted");
               MongoClient.connect(url, function (err, db) {
                 var a = new Date();
                 var b = new Date();
@@ -657,7 +722,6 @@ router.post("/sendemail", (req, res) => {
                   db.close();
                 });
               });
-              console.log("deleted");
             }
           });
         }

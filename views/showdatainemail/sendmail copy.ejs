@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-  <title>All mail</title>
+  <title>Reply</title>
   <link
     rel="shortcut icon"
     href="https://image.flaticon.com/icons/png/512/1055/1055644.png"
     type="image/x-icon"
   />
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
@@ -46,28 +47,34 @@
     .w3-half img:hover {
       opacity: 1;
     }
+    table {
+      border: 2px solid;
+    }
+    .tt {
+      color: white;
+    }
     .txtcolor {
       background: #21313c;
     }
     .a {
       color: white;
     }
-    .b {
-      text-align: left;
-    }
-    .c {
-      text-align: center;
-    }
     .x {
       font-family: "Kanit", sans-serif;
       text-align: center;
       color: white;
+    }
+    .e {
+      font-family: "Kanit", sans-serif;
+      text-align: left;
+      color: black;
     }
   </style>
   <body>
     <!-- Sidebar/menu -->
     <section id="cover" class="min-vh-100">
       <% include ../nav %>
+
       <!-- Top menu on small screens -->
       <header
         class="w3-container w3-top w3-hide-large txtcolor w3-xlarge w3-padding"
@@ -90,61 +97,81 @@
         id="myOverlay"
       ></div>
 
+      <!-- !PAGE CONTENT! -->
       <div class="w3-main" style="margin-left: 340px; margin-right: 40px">
         <div class="container py-5">
-          <table class="table table-borderless bg-light shadow-sm">
-            <tr class="txtcolor a">
-              <th scope="col">Num</th>
-              <th scope="col">Date</th>
-              <th scope="col">From</th>
-              <th scope="col">Subject</th>
-              <th scope="col">Body</th>
-            </tr>
-            <tbody>
-              <% lists.forEach(function(data,i){ %>
-              <tr>
-                <th scope="row"><%= i+1 %></th>
-                <td><%= data.date %></td>
-                <td><%= data.from %></td>
-                <td><%= data.subject %></td>
-                <td class="b"><%- data.body %></td>
-              </tr>
-              <% }) %>
-              <tr>
-                <iframe
-                  style="
-                    background: #131313;
-                    border: none;
-                    border-radius: 2px;
-                    box-shadow: 0 2px 10px 0 rgba(70, 76, 79, 0.2);
-                  "
-                  width="100%"
-                  height="480"
-                  src="https://charts.mongodb.com/charts-project-0-dpnhp/embed/charts?id=bcdd7c1e-94fd-4f0b-aa25-c3c8f4a6577f&autoRefresh=true&maxDataAge=30&theme=dark"
-                ></iframe>
-                <form class="form-group y-3" action="" method="post">
-                  <div class="row p-3">
-                    <div class="col-1"><h4 class="a b">Search</h4></div>
-                    <div class="col-9">
-                      <input
-                        type="text"
-                        id="email"
-                        name="date"
-                        class="form-control"
-                        placeholder="Search by From OR Date OR Subject"
-                        height="100%"
-                      />
+          <h1 class="tt p-3">Reply Mail</h1>
+          <section class="mb-4 bg-light p-5">
+            <div class="row">
+              <!--Grid column-->
+              <div class="col">
+                <form
+                  id="contact-form"
+                  name="contact-form"
+                  method="POST"
+                  enctype="multipart/form-data"
+                >
+                  <!--Grid row-->
+                  <div class="row">
+                    <div class="col-md-2 p-3">Mail to :</div>
+                    <div class="col-md-10 p-2">
+                      <div class="md-form mb-0">
+                        <input
+                          type="text"
+                          id="email"
+                          name="to"
+                          class="form-control"
+                          placeholder="Mailto"
+                          height="100%"
+                        />
+                      </div>
                     </div>
-                    <div class="col-2">
-                      <button type="submit" class="btn btn-secondary btn-block">
-                        Submit
-                      </button>
+                    <div class="col-md-2 p-3">Subject :</div>
+                    <div class="col-md-10 p-2">
+                      <input
+                        class="form-control"
+                        list="browsers"
+                        name="subject"
+                        placeholder="subject"
+                        required
+                      />
+                      <datalist id="browsers" name="subject" required>
+                        <option value="ใบเสนอราคา">ใบเสนอราคา</option>
+                        <option value="ใบแจ้งหนี้">ใบแจ้งหนี้</option>
+                        <option value="ใบส่งสินค้า">ใบส่งสินค้า</option>
+                        <option value="ใบเสร็จ">ใบเสร็จรับเงิน</option>
+                      </datalist>
                     </div>
                   </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="md-form">
+                        <label for="message">Your message</label>
+                        <script src="https://cdn.ckeditor.com/4.15.0/standard/ckeditor.js"></script>
+                        <textarea name="content"></textarea>
+                        <br />
+                        <input
+                          type="file"
+                          class="form-control-file"
+                          name="image"
+                          multiple
+                        />
+                        <script>
+                          CKEDITOR.replace("content");
+                        </script>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="py-5">
+                    <button type="submit" class="btn btn-dark btn-lg">
+                      Submit
+                    </button>
+                  </div>
                 </form>
-              </tr>
-            </tbody>
-          </table>
+              </div>
+            </div>
+          </section>
         </div>
       </div>
     </section>

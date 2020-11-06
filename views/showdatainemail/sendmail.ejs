@@ -123,6 +123,7 @@
                           class="form-control"
                           placeholder="Mailto"
                           height="100%"
+                          value=<%= from %>
                         />
                       </div>
                     </div>
@@ -133,8 +134,9 @@
                         list="browsers"
                         name="subject"
                         placeholder="subject"
+                        required
                       />
-                      <datalist id="browsers" name="subject">
+                      <datalist id="browsers" name="subject" required>
                         <option value="ใบเสนอราคา">ใบเสนอราคา</option>
                         <option value="ใบแจ้งหนี้">ใบแจ้งหนี้</option>
                         <option value="ใบส่งสินค้า">ใบส่งสินค้า</option>
@@ -148,12 +150,11 @@
                         <label for="message">Your message</label>
                         <script src="https://cdn.ckeditor.com/4.15.0/standard/ckeditor.js"></script>
                         <textarea name="content"></textarea>
+                        <br />
                         <input
                           type="file"
-                          required
-                          class="form-control"
+                          class="form-control-file"
                           name="image"
-                          id=""
                           multiple
                         />
                         <script>
@@ -164,67 +165,11 @@
                   </div>
 
                   <div class="py-5">
-                   <button
-                      type="submit"
-                      class="btn btn-dark btn-lg"
-                    >
-                      Submit
-                    </button>
-                  </div>
-                </form>
-                <!-- <form id="contact-form" name="contact-form" method="POST">
-                  <div class="row p-3">
-                    <div class="col-md-6 p-2">
-                      <div class="md-form mb-0">
-                        <input
-                          type="text"
-                          id="email"
-                          name="email"
-                          class="form-control"
-                          placeholder="Mail to"
-                          height="100%"
-                        />
-                      </div>
-                    </div>
-                    <div class="col-md-6 p-2">
-                      <div class="md-form mb-0">
-                        <input
-                          type="text"
-                          id="email"
-                          name="subject"
-                          class="form-control"
-                          placeholder="subject"
-                          height="100%"
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="md-form">
-                        <label for="message">Your message</label>
-                        <script src="https://cdn.ckeditor.com/4.15.0/standard/ckeditor.js"></script>
-                        <textarea name="content"></textarea>
-                        <script>
-                          CKEDITOR.replace("content");
-                        </script>
-                      </div>
-                    </div>
-                  </div>
-                  <input
-                    type="file"
-                    required
-                    class="form-control"
-                    name="image"
-                    id=""
-                  />
-                  <div class="py-5">
                     <button type="submit" class="btn btn-dark btn-lg">
                       Submit
                     </button>
                   </div>
-                </form> -->
+                </form>
               </div>
             </div>
           </section>
